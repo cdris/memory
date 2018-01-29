@@ -28,10 +28,10 @@ As root:
 
 As the new user:
 
- * Install NodeJS through NVM.
  * Check out this git repository to ~/src/memory
  * Run the deploy script.
    * You may need to answer "Y" and press return.
+ * Run the start script to start your server.
 
 ## Learn more
 
