@@ -22,6 +22,13 @@ defmodule MemoryWeb.GamesChannel do
     {:reply, {:ok, %{"game" => game}}, socket}
   end
 
+  def handle_in("new", socket) do
+    game = Game.new()
+    Memory.GameBackup.save(socket.assigns[:name], game)
+    socket = assign(socket, :game, game)
+    {:reply, {:ok, %{"game" => game}}, socket}
+  end
+
   defp authorized?(_payload) do
     true
   end
