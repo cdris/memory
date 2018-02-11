@@ -21,15 +21,17 @@ import "phoenix_html";
 import socket from "./socket"
 
 import game_init from "./game";
+import form_init from "./form";
 
 function init() {
-  let root = document.getElementById('game');
-  if (root) {
+  let game = document.getElementById('game');
+  if (game) {
     let channel = socket.channel("games:" + window.gameName, {});
-    game_init(root, channel);
+    game_init(game, channel);
   }
-  if (document.getElementById('index-page')) {
-    form_init();
+  let form = document.getElementById('form');
+  if (form) {
+    form_init(form);
   }
 }
 
