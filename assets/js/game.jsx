@@ -10,6 +10,7 @@ export default function game_init(root, channel) {
 // {
 //   tiles: [{letter: String, state: String}...]
 //   score: int
+//   sleeping: boolean
 // }
 
 class MemoryGame extends React.Component {
@@ -25,7 +26,16 @@ class MemoryGame extends React.Component {
   }
 
   gotView(view) {
+    console.log("New view", view);
     this.setState(view.game);
+    if (view.game.sleeping) {
+      setTimeout(() => {
+        if (this.state.sleeping) {
+          this.channel.push("update")
+              .receive("ok", this.gotView.bind(this));
+        }
+      }, 1000);
+    }
   }
 
   newGame(ev) {
@@ -33,8 +43,9 @@ class MemoryGame extends React.Component {
         .receive("ok", this.gotView.bind(this));
   }
 
-  tileClick(ev) {
-    this.channel.push("guess", {tile: ev.key})
+  tileClick(idx) {
+    console.log("Sending guess: " + idx);
+    this.channel.push("guess", { tile: idx })
         .receive("ok", this.gotView.bind(this));
   }
 
@@ -63,9 +74,7 @@ function Tile(params) {
     <div className={"tile " + params.state} onClick={() => {
       params.click(params.id);
     }}>
-      <div className="tileText">
-        {(params.state == UNMATCHED) ? "" : params.letter}
-      </div>
+      <div className="tileText">{params.letter}</div>
     </div>
   );
 }
