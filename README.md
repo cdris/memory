@@ -1,5 +1,10 @@
 # Memory
 
+## Attribution
+Game structure is heavily structured based on code here:
+[NatTuck/hangman2](https://github.com/NatTuck/hangman2)  
+Game form is based on quick start here: [reactjs Forms](https://reactjs.org/docs/forms.html)
+
 ## Development Instructions
 
 Prerequisites:
