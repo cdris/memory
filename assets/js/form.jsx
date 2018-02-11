@@ -30,7 +30,7 @@ class MemoryForm extends React.Component {
       <form onSubmit={this.handleSubmit.bind(this)}>
         <div class="form-group">
           <label for="gameName">Game Name</label>
-          <input type="text" name="gameName" class="form-control" id="gameName" required pattern="[a-zA-Z0-9]+" placeholder="enter game name" onChange={this.handleChange.bind(this)}/>
+          <input type="text" name="gameName" class="form-control" id="gameName" required pattern="[a-zA-Z0-9]+" placeholder="alphanumeric characters only, no spaces or special characters" onChange={this.handleChange.bind(this)}/>
         </div>
         <button type="submit" class="btn btn-primary">Join Game</button>
       </form>
