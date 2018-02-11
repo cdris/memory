@@ -1,5 +1,17 @@
 # Memory
 
+## Game Rules
+Memory games are single player games backed up by the server. The most recent turn or guess for a game name will be saved on the server.  
+
+#### Rules:
+
+ * Click any blue tile to view its letter
+ * Click a second blue tile to try and find a match
+ * If both tiles match, they will turn green and their values will remain visible
+ * If both tiles do not match, the values of both tiles will be visible for one second before they are hidden again
+ * If you make another guess (click another blue tile) while an incorrect match is still visible, the values of the incorrect match will immediately be hidden
+ * Score is the number of guesses made, the lower the better
+
 ## Attribution
 Game structure is heavily structured based on code here:
 [NatTuck/hangman2](https://github.com/NatTuck/hangman2)  
